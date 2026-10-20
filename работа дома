@@ -1,0 +1,35 @@
+#include <stdio.h>
+
+int main() {
+    int arr[5] = {1, 2, 3, 4, 5};
+    
+    printf("Reverse: ");
+    for (int i = 4; i >= 0; i--) {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+    
+    return 0;
+}
+( найти махсимальное число)
+
+  
+
+  #include <stdio.h>
+
+int main() {
+    int arr[7] = {12, 45, 7, 89, 23, 56, 11};
+    int max = arr[0]; 
+    
+    for (int i = 1; i < 7; i++) {
+        if (arr[i] > max) {
+            max = arr[i];
+        }
+    }
+    
+    printf("Max number: %d\n", max);
+    
+    return 0;
+}
+
+( реверс)
