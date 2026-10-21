@@ -1,0 +1,24 @@
+#include <stdio.h>
+#include <string.h> 
+int main() {
+	char str[100];
+	
+	printf("Введите слово: ");
+	scanf("%s", str); 
+	
+
+	printf("Длина: %d\n", (int)strlen(str));
+	
+
+	printf("Наоборот: ");
+	for (int i = strlen(str) - 1; i >= 0; i--) {
+		printf("%c", str[i]);
+	}
+	printf("\n");
+	
+	return 0;
+}
+
+
+
+(вывести слово задом на перед)
