@@ -1,0 +1,98 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+#define MAXN 100
+
+int array[MAXN];
+int n = 0;
+int choice;
+
+void swap(int i, int j){
+    int t;
+
+    t = array[i];
+    array[i] = array[j];
+    array[j] = t;
+}
+
+void array_print(){
+    int i;
+
+    putchar('[');
+    for(i = 0; i < n; i++){
+        if(i > 0) printf(", ");
+        printf("%d", array[i]);
+    }
+    printf("]\n");
+}
+
+void array_get(){
+    int i;
+
+    for(i = 0; i < n; i++)
+        scanf("%d", &array[i]);
+}
+
+void array_sort_asc(){
+    int i, imin, j;
+
+    for(i = 0; i < n - 1; i++){
+        imin = i;
+        for(j = i + 1; j < n; j++)
+            if(array[j] < array[imin]) imin = j;
+        swap(i, imin);
+    }
+}
+
+void array_sort_abs_desc(){
+    int i, imax, j;
+
+    for(i = 0; i < n - 1; i++){
+        imax = i;
+        for(j = i + 1; j < n; j++)
+            if(abs(array[j]) > abs(array[imax])) imax = j;
+        swap(i, imax);
+    }
+}
+
+void array_sort_even(){
+    int i, j;
+
+    for(i = 0; i < n - 1; i++){
+        if(array[i] % 2 != 0) continue;
+        for(j = i + 1; j < n; j++)
+            if(array[j] % 2 == 0 && array[j] < array[i])
+                swap(i, j);
+    }
+}
+
+void main(){
+    while(1){
+        printf("0-exit 1-input 2-print 3-asc 4-abs 5-even\n> ");
+        scanf("%d", &choice);
+
+        if(choice == 0) break;
+
+        if(choice == 1){
+            scanf("%d", &n);
+            if(n < 1 || n > MAXN){ n = 0; continue; }
+            array_get();
+        }
+        else if(choice == 2){
+            array_print();
+        }
+        else if(choice == 3){
+            array_sort_asc();
+            array_print();
+        }
+        else if(choice == 4){
+            array_sort_abs_desc();
+            array_print();
+        }
+        else if(choice == 5){
+            array_sort_even();
+            array_print();
+        }
+        else printf("?\n");
+    }
+}
